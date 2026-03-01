@@ -1,0 +1,70 @@
+﻿name: ✨ Feature Request
+description: Suggest a new feature or improvement
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [ROADMAP.md](https://github.com/WorldEditorRemix/Docs/blob/main/docs/ROADMAP.md) first — your idea may already be planned.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the editor does this relate to?
+      options:
+        - Terrain editing
+        - Object / building tools
+        - Attribute painting
+        - Water tools
+        - Python scripting / API
+        - UI / panels
+        - Performance
+        - Configuration (.ini)
+        - Minimap / atlas generation
+        - Environment / skybox
+        - Pack loading
+        - Export / backup
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the workflow pain point or gap this feature would address.
+      placeholder: "Currently I have to manually paint attributes on every stone tile after each texture change. This takes 20+ minutes per map."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe what you want to happen. Include UI sketches, API ideas, or `.ini` option names if relevant.
+      placeholder: "A button in the Attr Tab that auto-detects textures by name pattern and paints the matching flag..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any workarounds you currently use, or other approaches you considered.
+
+  - type: textarea
+    id: scripting-workaround
+    attributes:
+      label: Could this be done via Python scripting today?
+      description: If yes, describe why a native solution would still be better.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission checklist
+      options:
+        - label: I checked ROADMAP.md and this is not already planned
+          required: true
+        - label: I checked that no existing API function or .ini option covers this
+          required: true

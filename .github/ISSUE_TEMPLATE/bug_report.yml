@@ -1,0 +1,90 @@
+name: 🝛 Bug Report
+description: Report a crash, incorrect behaviour, or regression
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing, please check [KNOWN_ISSUES.md](https://github.com/WorldEditorRemix/Docs/blob/main/docs/KNOWN_ISSUES.md) and [TROUBLESHOOTING.md](https://github.com/WorldEditorRemix/Docs/blob/main/docs/TROUBLESHOOTING.md).
+        If your issue is already listed there as **Open** with no workaround, it is already on the roadmap.
+
+  - type: input
+    id: version
+    attributes:
+      label: WorldEditorRemix version
+      description: Find it in the `.exe` filename (e.g. `v49`)
+      placeholder: "v49"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build type
+      options:
+        - Release (_MfcRelease)
+        - Debug (_MfcDebug)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+        - Windows 7 / 8
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Clear description of the bug. What did you do, what did you expect, what actually occurred?
+      placeholder: "I clicked X, then Y, and the editor crashed / behaved incorrectly."
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal numbered steps to trigger the bug consistently.
+      placeholder: |
+        1. Load map 'metin2_map_a1'
+        2. Switch to Attr Tab
+        3. Enable wireframe (F11)
+        4. Editor renders terrain white
+    validations:
+      required: true
+
+  - type: textarea
+    id: crash-dump
+    attributes:
+      label: Crash dump / log output (if applicable)
+      description: |
+        If the Debug build crashed, attach the `.dmp` file from `logs/` or paste the relevant console output.
+        Drag-and-drop files directly into this text area.
+      placeholder: "Paste console output here, or drag in the .dmp file."
+
+  - type: textarea
+    id: python-script
+    attributes:
+      label: Python script (if scripting-related)
+      description: Paste the relevant snippet from your `WorldEditorRemix.py` if the bug occurs during script execution.
+      render: python
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission checklist
+      options:
+        - label: I checked KNOWN_ISSUES.md and this is not already listed
+          required: true
+        - label: I am using the latest release from the Releases tab
+          required: true
+        - label: I can reproduce this consistently
+          required: false
